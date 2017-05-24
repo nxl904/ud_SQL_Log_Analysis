@@ -1,39 +1,40 @@
 import  psycopg2 
+"""Import the psycopg  adapter to allow intergration with PostgreSQL database and the below python code"""
 
 DBNAME = "news"
 
 
 def popular_articles():
-  	"""Return all posts from the 'database', most recent first."""
+  	"""Returns a list most popular articles, their author, and respective count from newsdata.sql  """
 	try:
 		db = psycopg2.connect (database =DBNAME)
 		c = db.cursor()
 		c.execute("select authart.title, authart.name as author, titlecount.count AS number_of_views from titlecount join authart ON titlecount.title = authart.title order by count desc")
-		print("connected to db")
+		print("Most popular articles read and their respective authors, and counts:")
 		print(c.fetchall()) 
 		db.close()
 	except:
-		print("no luck")
+		print("popular_articles function didn't run")
 
 def popular_authors():
-  	"""Return all posts from the 'database', most recent first."""
+  	"""Returns a list most popular authors and the number of times their articles have been accessed from the newsdata.sql database."""
 	try:
 		db = psycopg2.connect (database =DBNAME)
 		c = db.cursor()
 		c.execute("select name, count(name) as number_of_views from logauthart group by name order by number_of_views desc")
-		print("connected to db")
+		print("List of the most popular authors accessed and the respective count of articles")
 		print(c.fetchall()) 
 		db.close()
 	except:
 		print("no luck")
 
 def days_errors():
-  	"""Return all posts from the 'database', most recent first."""
+  	"""Returns a list a list of all days were error rates are greater than 1%' and that day's percentage of errors from the newsdata.sql"""
 	try:
 		db = psycopg2.connect (database =DBNAME)
 		c = db.cursor()
 		c.execute("select date, largerthan1 from (select date,(error_count::decimal/ok_count::decimal)*100 as largerthan1 from errorok) as X where largerthan1 > 1")
-		print("connected to db")
+		print("A list of all days were error rates are greater than 1%' and that day's percentage of errors")
 		print(c.fetchall()) 
 		db.close()
 	except:
