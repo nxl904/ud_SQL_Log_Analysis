@@ -19,12 +19,19 @@ The following views were created:
 
 authart – combines author and article tables
 logsubstr – Parses the “path” column of the log file using a substring function to obtain the “slug” which will allow for a join to authart
-logauthart – joins logsubstr to authart to make a single table with all necessary data points. 
-titlecount – queries logauthart to provide a count of titles
-time2txt- utilizes the to_char function and converts the “time” column in time2txt from a timestamp to a string
+
+logauthart – joins logsubstr to authart to make a single table with all necessary data points.
+
+titlecount – queries logauthart to provide a count of titles.
+
+time2txt- utilizes the to_char function and converts the “time” column in time2txt from a timestamp to a string.
+
 time2txtss – utilizes the substring function to parse the “time” column form the logauthart to include only the date and not the hours, minutes, and seconds. This was necessary to aggregate and summate the log data by date to answer question 3. 
+
 ok – view of time2txtss with only 200 responses.
+
 error- view of time2txtss with only 404 responses.
+
 errorok – combines counts of errors & ok to calculate error rate for question 3. 
 
 The python code in log_ana.py was validated in accordance to PEP8 standards:  http://pep8online.com/
