@@ -1,5 +1,5 @@
 import psycopg2
-"""Import the psycopg  adapter to allow intergration with PostgreSQL database
+"""Import the psycopg  adapter to allow integration with PostgreSQL database
 and the below python code"""
 
 DBNAME = "news"
