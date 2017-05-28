@@ -7,5 +7,6 @@ create view time2text as select log.path, log.ip, log.method, log.status, log."t
 create view time2textss as select time2text.path, time2text.ip, time2text.method, time2text.status, time2text."time", time2text.id, time2text.to_char, "substring"(time2text.to_char, 0, 11) AS "substring" from time2text;
 create view one  as select time2textss."substring", count(time2textss."substring") as count from time2textss where time2textss.status = '200 OK'::text group by time2textss."substring" order by  (count(time2textss."substring")) desc;
 create view error as select time2textss."substring", count(time2textss."substring") AS count from time2textss where time2textss.status <> '200 OK'::text group by time2textss."substring" order by  (count(time2textss."substring")) desc;
+create view ok as select time2textss."substring", count(time2textss."substring") as count from time2textss where time2textss.status = '200 OK'::text group by time2textss."substring" order by (count(time2textss."substring")) desc;
 create view errorok as select ok."substring" as date, error.count as error_count, ok.count as ok_count from ok join error on ok."substring" = error."substring";
 
