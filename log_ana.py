@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import psycopg2
 """Import the psycopg  adapter to allow integration with PostgreSQL database
 and the below python code"""
@@ -17,7 +18,7 @@ def popular_articles():
             print("Most popular articles read(article, name, count):")
             fa = (c.fetchall())
             for n in fa:
-                print(n)
+                print(' '+str(n[0])+'by'+str(n[1])+'-'+str(n[2])+'views')
             db.close()
         except:
             print("popular_articles function didn't run")
@@ -33,7 +34,7 @@ def popular_authors():
             print("List of the most popular authors accessed (author, count):")
             fa = (c.fetchall())
             for n in fa:
-                print(n)
+                print(' ' + str(n[0]) + ' - ' + str(n[1]) + ' views')
             db.close()
         except:
             print("popular_authors function did not run")
@@ -50,7 +51,7 @@ def days_errors():
             print("Dates where error rate >1% (date, percentage):")
             fa = (c.fetchall())
             for n in fa:
-                print(n)
+                print(' '+str(n[0])+" "+'date'+" "+'{:.4}'.format(str(n[1])))
             db.close()
         except:
             print("days_errors function did not run")
