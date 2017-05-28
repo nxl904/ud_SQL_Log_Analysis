@@ -1,5 +1,5 @@
 
-create view aurthart as select articles.title, authors.name, articles.slug from  articles, authors where articles.author = authors.id ;
+create view authart as select articles.title, authors.name, articles.slug from  articles, authors where articles.author = authors.id ;
 create view logsubstr as  select "substring"(log.path, 10, 30) AS "substring" from log;
 create view logauthart as select authart.title, authart.name, logsubstr."substring" from authart join logsubstr on authart.slug = logsubstr."substring";
 create view titlecount as select logauthart.title, count(logauthart.title) as count from logauthart group by logauthart.title;
