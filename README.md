@@ -1,6 +1,6 @@
 # Description: 
 
-This is the third project required for the Udacity Nanodegree for Full Stack Web Development. Here we are given three tables and asked to extract specific information. Demonstration of SQL topics such as joins, subqueries, view creation, char_to and sub-string parsing were used in this PostgreSQL database. I further created a simple python application and integrated it to the database using psycopg2. This applications allows for direct read integration with the backend repository enabling the user to run the queries by simply executing the python script.  All work was done in the GIT command line in a virtualized vm environment using Vagrant. 
+In this project I demonstrate log analysis. We are given three tables and asked to extract specific information. Demonstration of SQL topics such as joins, subqueries, view creation, char_to and sub-string parsing were used in this PostgreSQL database. I further created a simple python application and integrated it to the database using psycopg2. This applications allows for direct read integration with the backend repository enabling the user to run the queries by simply executing the python script.  All work was done in the GIT command line in a virtualized vm environment using Vagrant. 
 
 ## Questions to be answered
 
